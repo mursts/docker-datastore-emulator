@@ -2,7 +2,7 @@
 
 LISTEN_ADDRESS=0.0.0.0:8081
 
-docker container run -it -d --rm -e DATASTORE_PROJECT_ID=${DATASTORE_PROJECT_ID} -e DATASTORE_LISTEN_ADDRESS=${LISTEN_ADDRESS} -p 8081:8081 mursts/datastore-emulator
+docker container run -it -d --rm -e DATASTORE_PROJECT_ID=${DATASTORE_PROJECT_ID} -e DATASTORE_LISTEN_ADDRESS=${LISTEN_ADDRESS} -p 8081:8081 mursts/docker-datastore-emulator
 
 echo "exec other terminal:"
 echo "  export DATASTORE_EMULATOR_HOST=${LISTEN_ADDRESS}"
