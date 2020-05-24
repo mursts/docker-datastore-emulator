@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if [ -z "${DATASTORE_PROJECT_ID}" ]; then
+    echo "environment variable [DATASTORE_PROJECT_ID] is required."
+    exit 1
+fi
+
+if [ -z "${DATASTORE_LISTEN_ADDRESS}" ]; then
+    echo "environment variable [DATASTORE_LISTEN_ADDRESS] is required."
+    exit 1
+fi
+
+gcloud config set project ${DATASTORE_PROJECT_ID}
+
+gcloud beta emulators datastore start \
+  --data-dir=/opt/data \
+  --host-port=${DATASTORE_LISTEN_ADDRESS}
